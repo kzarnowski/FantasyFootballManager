@@ -1,0 +1,1 @@
+RND = 1  # RANDOMNESS [0.0 - 2.0]
