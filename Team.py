@@ -16,8 +16,8 @@ class Team:
 
     @property
     def attack(self):
-        return mean([p.ovr for p in self.strikers])
+        return int(mean([p.ovr for p in self.strikers]))
 
     @property
     def defence(self):
-        return mean([p.ovr for p in self.defenders])
+        return int(mean([p.ovr for p in self.defenders]))

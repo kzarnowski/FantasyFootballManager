@@ -3,8 +3,8 @@ class Player:
         self.id = player_id
         self.firstname = firstname
         self.lastname = lastname
-        self.age = age
-        self.ovr = ovr
+        self.age = int(age)
+        self.ovr = int(ovr)
         self.position = position
 
     @property

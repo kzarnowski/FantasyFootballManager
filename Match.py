@@ -11,17 +11,21 @@ class Match:
         return f'{self.home_team} vs {self.away_team}'
 
     def kick_off(self):
-        for round in range(5):
+        print(f'Home: {self.home_team.club} - ATK: {self.home_team.attack} - DEF: {self.home_team.defence}')
+        print(f'Away: {self.away_team.club} - ATK: {self.away_team.attack} - DEF: {self.away_team.defence}')
+        for i in range(5):
             self.shoot(self.home_team, self.away_team)
             self.shoot(self.away_team, self.home_team)
         print(f'Result: {str(self.home_team.club)}: {self.home_team.score} vs '
               f'{str(self.away_team.club)}: {self.away_team.score}')
+        return self.home_team.score, self.away_team.score
 
     @staticmethod
     def shoot(atk_team, def_team):
-        print(f'Attacking team: {atk_team}')
-        atk_power = atk_team.attack + gauss(0, RND * 2)
-        def_power = def_team.defence + gauss(0, RND * 2)
+        print(f'Attacking team: {atk_team.club}')
+        atk_power = atk_team.attack + int(gauss(0, RND * 2))
+        def_power = def_team.defence + int(gauss(0, RND * 2))
+        print(f'Attack stats: {atk_power} -> {def_power}')
         if atk_power > def_power:
             atk_team.score += 1
             print('Goal!')
