@@ -6,7 +6,6 @@ class Team:
         self.club = club
         self.defenders = [p for p in players if p.position == 'defender']
         self.strikers = [p for p in players if p.position == 'striker']
-        self.score = 0
 
     def __repr__(self):
         res = str(self.club)
