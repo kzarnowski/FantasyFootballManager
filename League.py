@@ -1,9 +1,10 @@
 from Match import Match
 
+
 class League:
     def __init__(self, clubs):
         self.clubs = clubs
-        self.standings = dict.fromkeys(clubs, 0)
+        self.standings = {club: {'points': 0, 'scored': 0, 'conceded': 0} for club in self.clubs}
         self.calendar = {
             1: ((0, 1), (2, 3)),
             2: ((2, 0), (3, 1)),
@@ -28,5 +29,15 @@ class League:
                 games.append(Match(self.clubs[self.calendar[matchday][pair][0]], self.clubs[self.calendar[matchday][pair][1]]))
             for g in games:
                 result = g.kick_off()
-                self.standings[g.home] += result[0]
-                self.standings[g.away] += result[1]
+                if result[0] > result[1]:
+                    self.standings[g.home]['points'] += 3
+                elif result[0] < result[1]:
+                    self.standings[g.away]['points'] += 3
+                else:
+                    self.standings[g.home]['points'] += 1
+                    self.standings[g.away]['points'] += 1
+
+                self.standings[g.home]['scored'] += result[0]
+                self.standings[g.home]['conceded'] += result[1]
+                self.standings[g.away]['scored'] += result[1]
+                self.standings[g.away]['conceded'] += result[0]

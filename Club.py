@@ -12,6 +12,7 @@ class Club:
         return self.name
 
     def random_team(self, players):
+        # TODO: better randomization
         strikers = 0
         defenders = 0
         shuffle(players)

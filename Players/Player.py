@@ -1,11 +1,10 @@
 class Player:
-    def __init__(self, player_id, firstname, lastname, age, ovr, position):
-        self.id = player_id
+    def __init__(self, player_id, firstname, lastname, age, ovr):
+        self.id = int(player_id)
         self.firstname = firstname
         self.lastname = lastname
         self.age = int(age)
         self.ovr = int(ovr)
-        self.position = position
 
     @property
     def name(self):
