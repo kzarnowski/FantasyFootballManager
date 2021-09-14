@@ -9,7 +9,7 @@ It's a multifunctional project, which contains topics like software programming,
 Have some sample players. Has a function to generate random squad from all available players for every matchday.
 
 ### SQUAD
-11 players (goalkeeper, 3 defenders, 3 midfielders, 3 strikers). A squad is set randomly for every match. Squad has attributes like attack and defence, for now it is just an average of appropriate players ovr.
+By now 10 players (5 defenders, 5 strikers), in the future 11 players (goalkeeper, 3 defenders, 3 midfielders, 3 strikers). A squad is set randomly for every match. Squad has attributes like attack and defence, for now it is just an average of appropriate players ovr.
 
 ### PLAYER
 Has attributes like ID, name, age and ovr. The ovr is just a basic rating, theoritcally 0-100 but for now there are no players with ovr < 60. Player.py is an abstract superclass, and there are subclasses for each position (Goalkeeper, Defender, Midfielder, Striker). For now, positions don't give any special actions.
