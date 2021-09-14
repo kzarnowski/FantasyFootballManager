@@ -12,11 +12,11 @@ class Match:
         return f'{self.home} vs {self.away} : {self.result}'
 
     def kick_off(self):
-        print(f'Home: {self.home} - ATK: {self.home.team.attack} - DEF: {self.home.team.defence}')
-        print(f'Away: {self.away} - ATK: {self.away.team.attack} - DEF: {self.away.team.defence}')
+        print(f'Home: {self.home} - ATK: {self.home.squad.attack} - DEF: {self.home.squad.defence}')
+        print(f'Away: {self.away} - ATK: {self.away.squad.attack} - DEF: {self.away.squad.defence}')
         for i in range(5):
-            self.result[0] += self.shoot(self.home.team, self.away.team)
-            self.result[1] += self.shoot(self.away.team, self.home.team)
+            self.result[0] += self.shoot(self.home.squad, self.away.squad)
+            self.result[1] += self.shoot(self.away.squad, self.home.squad)
         print(self, '\n')
         return self.result
 

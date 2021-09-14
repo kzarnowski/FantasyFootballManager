@@ -1,11 +1,12 @@
 from statistics import mean
+import Players
 
 
-class Team:
+class Squad:
     def __init__(self, club, players):
         self.club = club
-        self.defenders = [p for p in players if p.position == 'defender']
-        self.strikers = [p for p in players if p.position == 'striker']
+        self.defenders = [p for p in players if isinstance(p, Players.Defender.Defender)]
+        self.strikers = [p for p in players if isinstance(p, Players.Striker.Striker)]
 
     def __repr__(self):
         res = str(self.club)

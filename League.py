@@ -23,7 +23,7 @@ class League:
     def play_season(self):
         for matchday in range(1, 7):
             for c in self.clubs:
-                c.team = c.random_team(c.players)
+                c.squad = c.random_squad()
             games = []
             for pair in range(len(self.clubs)//2):
                 games.append(Match(self.clubs[self.calendar[matchday][pair][0]], self.clubs[self.calendar[matchday][pair][1]]))
