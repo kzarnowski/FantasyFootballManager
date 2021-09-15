@@ -1,23 +1,21 @@
 from statistics import mean
-import Players
 
 
 class Squad:
     def __init__(self, club, players):
         self.club = club
-        self.defenders = [p for p in players if isinstance(p, Players.Defender.Defender)]
-        self.strikers = [p for p in players if isinstance(p, Players.Striker.Striker)]
+        self.players = players
 
     def __repr__(self):
         res = str(self.club)
-        for p in self.strikers + self.defenders:
-            res += '\n' + str(p)
+        for k, v in self.players.items():
+            res += f'\n{k}:\t {v}'
         return res
 
     @property
     def attack(self):
-        return int(mean([p.ovr for p in self.strikers]))
+        return int(mean([p.ovr for p in self.players['striker']]))
 
     @property
     def defence(self):
-        return int(mean([p.ovr for p in self.defenders]))
+        return int(mean([p.ovr for p in self.players['defender']]))

@@ -12,8 +12,14 @@ class Club:
         return self.name
 
     def random_squad(self):
-        # TODO: generate team based on dictionary and with all positions
-        shuffle(self.players['defenders'])
-        shuffle(self.players['strikers'])
-        players_list = self.players['defenders'][:5] + self.players['strikers'][:5]
-        return Squad(self, players_list)
+        team = {}
+        for pos in self.players:
+            shuffle(self.players[pos])
+            if pos == 'goalkeeper':
+                n = 1
+            elif pos == 'midfielder':
+                n = 4
+            else:
+                n = 3
+            team[pos] = self.players[pos][-n:]
+        return Squad(self, team)
