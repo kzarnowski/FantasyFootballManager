@@ -10,10 +10,10 @@ from Players.Goalkeeper import Goalkeeper
 
 
 def random_team(players):
-    team = dict.fromkeys(players.keys(), [])
+    team = {}
     for pos in players:
         shuffle(players[pos])
-        n = 3 if pos == 'goalkeepers' else 10
+        n = 3 if pos == 'goalkeeper' else 10
         team[pos] = players[pos][-n:]
         del players[pos][-n:]
     return team
@@ -21,10 +21,10 @@ def random_team(players):
 
 if __name__ == '__main__':
     all_players = {
-        'goalkeepers': [],
-        'defenders': [],
-        'midfielders': [],
-        'strikers': []
+        'goalkeeper': [],
+        'defender': [],
+        'midfielder': [],
+        'striker': []
     }
 
     with open('players_data.csv', 'r') as f:
@@ -33,13 +33,13 @@ if __name__ == '__main__':
         for row in reader:
             position = row[5]
             if position == 'striker':
-                all_players['strikers'].append(Striker(*row[:-1]))
+                all_players['striker'].append(Striker(*row[:-1]))
             elif position == 'midfielder':
-                all_players['midfielders'].append(Midfielder(*row[:-1]))
+                all_players['midfielder'].append(Midfielder(*row[:-1]))
             elif position == 'defender':
-                all_players['defenders'].append(Defender(*row[:-1]))
+                all_players['defender'].append(Defender(*row[:-1]))
             elif position == 'goalkeeper':
-                all_players['goalkeepers'].append(Goalkeeper(*row[:-1]))
+                all_players['goalkeeper'].append(Goalkeeper(*row[:-1]))
 
     SuperLeague = League([
         Club('Barca', random_team(all_players)),
@@ -50,3 +50,5 @@ if __name__ == '__main__':
     print(SuperLeague)
     SuperLeague.play_season()
     print(SuperLeague)
+
+    print(SuperLeague.clubs[0].squad)
