@@ -23,7 +23,7 @@ class League:
     def play_season(self):
         for matchday in range(1, 7):
             for c in self.clubs:
-                c.squad = c.random_squad()
+                c.squad, c.bench = c.random_squad()
             games = []
             for pair in range(len(self.clubs)//2):
                 games.append(Match(self.clubs[self.calendar[matchday][pair][0]], self.clubs[self.calendar[matchday][pair][1]]))
@@ -41,3 +41,4 @@ class League:
                 self.standings[g.home]['conceded'] += result[1]
                 self.standings[g.away]['scored'] += result[1]
                 self.standings[g.away]['conceded'] += result[0]
+

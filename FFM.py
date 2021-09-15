@@ -47,6 +47,8 @@ if __name__ == '__main__':
         Club('City', random_team(all_players)),
         Club('Real', random_team(all_players))
     ])
+    print(SuperLeague.clubs[0].squad)
+    print(SuperLeague.clubs[0].bench)
     print(SuperLeague)
     SuperLeague.play_season()
     print(SuperLeague)
